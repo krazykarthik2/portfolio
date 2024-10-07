@@ -5,27 +5,12 @@ import { SiLeetcode } from "react-icons/si";
 import { Link } from "react-router-dom";
 const axios = require("axios");
 
-const query = `
-{
-  matchedUser(username: "YOUR_USERNAME") {
-    username
-    submitStats: submitStatsGlobal {
-      acSubmissionNum {
-        difficulty
-        count
-        submissions
-      }
-    }
-  }
-}
-`;
-
 function Skills() {
   const [leetData, setLeetData] = useState(null);
   window.lt = leetData;
   useEffect(() => {
     axios
-      .get("https://leetcode.com/graphql", { query })
+      .get("https://alfa-leetcode-api.onrender.com/karthikkrazy/solved")
       .then((response) => {
         setLeetData(response.data);
         console.log(response.data);
@@ -55,47 +40,21 @@ function Skills() {
           <div className="d-center">
             <SiLeetcode size={27} />
             <div>
-              /karthikkrazy
-              [<span>
-                {
-                  leetData?.data.matchedUser.submitStats.acSubmissionNum.find(
-                    (e) => e.difficulty == "All"
-                  ).count
-                }
-              </span>]
-              
+              /karthikkrazy [<span>{leetData?.solvedProblem}</span>]
             </div>
           </div>
           <div className="d-center justify-between w-full">
-            <div className="stack text-sm">
+            <div className="stack d-center text-sm">
+              <div className="text-xl">{leetData?.easySolved}</div>
               <div>Easy</div>
-              <div>
-                {
-                  leetData?.data.matchedUser.submitStats.acSubmissionNum.find(
-                    (e) => e.difficulty == "Easy"
-                  ).count
-                }
-              </div>
             </div>
-            <div className="stack text-sm">
+            <div className="stack d-center text-sm">
+              <div className="text-xl">{leetData?.mediumSolved}</div>
               <div>Medium</div>
-              <div>
-                {
-                  leetData?.data.matchedUser.submitStats.acSubmissionNum.find(
-                    (e) => e.difficulty == "Medium"
-                  ).count
-                }
-              </div>
             </div>
-            <div className="stack text-sm">
+            <div className="stack d-center text-sm">
+              <div className="text-xl">{leetData?.hardSolved}</div>
               <div>Hard</div>
-              <div>
-                {
-                  leetData?.data.matchedUser.submitStats.acSubmissionNum.find(
-                    (e) => e.difficulty == "Hard"
-                  ).count
-                }
-              </div>
             </div>
           </div>
         </Link>
