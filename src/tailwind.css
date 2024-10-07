@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components{
+    .d-center{
+        @apply flex items-center justify-center
+    }
+    .d-ends{
+        @apply flex items-center justify-between
+    }
+    .stack{
+        @apply flex flex-col
+    }
+    .bg-glass{
+        @apply backdrop-blur-sm bg-[#fff4]
+    }
+    button{
+        @apply border-0 outline-0
+    }
+    .h1{
+        @apply text-3xl
+    }
+}

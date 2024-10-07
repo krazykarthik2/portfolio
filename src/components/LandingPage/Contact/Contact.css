@@ -1,0 +1,39 @@
+@tailwind components;
+@layer components {
+  .contact-page {
+    label {
+      @apply text-2xl flex duration-300;
+    }
+    .here{
+        @apply text-3xl !hidden;
+    }
+    .inputgroup {
+      &:focus-within,
+      &:has(input.dirty){
+        label {
+          @apply text-xl ;
+        }
+      }
+      &:focus-within{
+        .here{
+            @apply !block;
+        }
+      }
+      input.not-dirty {
+        @apply h-0;
+      }
+      input{
+        @apply w-full ;
+      }
+    }
+    input {
+      @apply bg-black border-0 outline-0 ps-3 caret-white duration-300;
+    }
+    .input-border {
+      @apply h-2 w-full bg-white rounded-full;
+    }
+    textarea {
+      @apply bg-black text-white border-4 border-white rounded-2xl outline-0 p-2;
+    }
+  }
+}
