@@ -83,11 +83,11 @@ function About() {
             ))}
           </div>
         </div>
-        <div className="d-center gap-3 text-2xl text-white bg-green-700 py-2 pt-5 px-10 rounded-t-3xl">
+        <Link to={"/gallery"} className="d-center gap-3 text-2xl text-white bg-green-700 py-2 pt-5 px-10 rounded-t-3xl">
           <TbPhotoHexagon size={27} />
           <span>Gallery</span>
           <FaArrowRight size={17} />
-        </div>
+        </Link>
       </div>
     </div>
   );

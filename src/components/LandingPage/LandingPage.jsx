@@ -7,6 +7,9 @@ import Skills from "./Skills/Skills";
 import Header from "../Header/Header";
 import Socials from "../utils/Socials/Socials";
 import ShareBtn from "../utils/ShareBtn/ShareBtn";
+function onScroll(e){
+  console.log(e)
+}
 function smoothScrollTo(el,target, duration) {
   const start = el.scrollTop;
   const change = target - start;
@@ -34,6 +37,12 @@ function LandingPage({page}) {
       smoothScrollTo(scrollRef.current,((page-1)/5)*scrollRef.current.scrollHeight,500)
     }
   },[page])
+  useEffect(()=>{
+    window.addEventListener("scrollend",onScroll)
+    return ()=>{
+      window.removeEventListener("scrollend",onScroll)
+    }
+  },[])
   return (
     <>
       <Header style={{ height: "10vh" }} />

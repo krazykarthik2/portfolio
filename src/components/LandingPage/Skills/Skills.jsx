@@ -1,30 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { HiMiniAcademicCap } from "react-icons/hi2";
 import { SiLeetcode } from "react-icons/si";
 import { Link } from "react-router-dom";
-const axios = require("axios");
+import getLeetCodeData from "../../../json/leetcodeapi";
 
 function Skills() {
   const [leetData, setLeetData] = useState(null);
-  window.lt = leetData;
   useEffect(() => {
-    axios
-      .get("https://alfa-leetcode-api.onrender.com/karthikkrazy/solved")
-      .then((response) => {
-        setLeetData(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    let x=async ()=>{setLeetData(await getLeetCodeData())}
+    x();
   }, []);
   return (
     <div className="w-full h-screen d-center stack">
       <div className="top h-full"></div>
       <div className="end d-ends w-full px-10">
         <Link
-          to="/academia"
+          to="/career"
           className="d-center gap-3 text-2xl text-white bg-green-700 py-5 pt-2 px-5 rounded-t-3xl"
         >
           <HiMiniAcademicCap size={27} />

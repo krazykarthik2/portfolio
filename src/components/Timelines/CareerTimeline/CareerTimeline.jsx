@@ -17,13 +17,13 @@ const segms = [
   },
 ];
 
-function AboutTimeline() {
+function CareerTimeline() {
   return (
     <TimeLineComponent
       segments={segms}
       beforePage={
         <>
-          <h1 className="text-9xl">ABOUT ME</h1>
+          <h1 className="text-9xl">CAREER</h1>
           <h4>in a timeline</h4>
           <FaAnglesDown size={60} className="text-gray-800 animate-pulse" />
         </>
@@ -38,15 +38,15 @@ function AboutTimeline() {
               <h1 className="text-2xl">TIMELINES </h1>
             </div>
             <div className="d-center stack items-start">
-              <Link to={"/projects/timeline"} className="d-center gap-3 ">
-                <h1>Projects</h1>
+              <Link to={"/about/timeline"} className="d-center gap-3 ">
+                <h1>About</h1>
                 <FaArrowRightLong
                   size={60}
                   className="text-gray-800 animate-pulse "
                 />
               </Link>
-              <Link to={"/career/timeline"} className="d-center gap-3 ">
-                <h1>Qualifications</h1>
+              <Link to={"/projects/timeline"} className="d-center gap-3 ">
+                <h1>Projects</h1>
                 <FaArrowRightLong
                   size={60}
                   className="text-gray-800 animate-pulse "
@@ -64,4 +64,4 @@ function AboutTimeline() {
   );
 }
 
-export default AboutTimeline;
+export default CareerTimeline;

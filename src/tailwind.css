@@ -1,23 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer components{
-    .d-center{
-        @apply flex items-center justify-center
+@layer components {
+  .d-center {
+    @apply flex items-center justify-center;
+  }
+  .d-ends {
+    @apply flex items-center justify-between;
+  }
+  .stack {
+    @apply flex flex-col;
+  }
+  .bg-glass {
+    @apply backdrop-blur-sm bg-[#fff4];
+  }
+  button {
+    @apply border-0 outline-0;
+  }
+  .h1 {
+    @apply text-3xl;
+  }
+  .markdown {
+    h1 {
+      @apply h1;
     }
-    .d-ends{
-        @apply flex items-center justify-between
+    h2 {
+      @apply text-2xl;
     }
-    .stack{
-        @apply flex flex-col
+    h3,h4,h5,h6{
+        @apply text-xl;
     }
-    .bg-glass{
-        @apply backdrop-blur-sm bg-[#fff4]
-    }
-    button{
-        @apply border-0 outline-0
-    }
-    .h1{
-        @apply text-3xl
-    }
+  }
 }
